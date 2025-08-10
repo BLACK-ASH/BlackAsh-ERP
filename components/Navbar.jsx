@@ -1,5 +1,5 @@
 import { CodeSquare } from 'lucide-react'
-import ToggleTheme from './ToggleTheme'
+import { SidebarTrigger } from './ui/sidebar'
 
 const Navbar = () => {
     return (
@@ -13,7 +13,7 @@ const Navbar = () => {
                     BlackAsh ERP
                 </a>
             </div>
-            <ToggleTheme />
+            <SidebarTrigger />
         </nav>
     )
 }

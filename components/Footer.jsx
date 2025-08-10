@@ -3,7 +3,7 @@ import { CodeSquare } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 const Footer = () => {
    return (
-        <footer className="flex h-[6vh] space-x-2 justify-between items-center max-md:flex-col p-4">
+        <footer className="flex h-[6vh] space-x-2 justify-between items-center max-md:flex-col max-md:space-y-2 p-4">
             <div className="flex justify-center gap-2 md:justify-start">
                 <a href="/" className="flex items-center gap-2 font-medium">
                     <div
