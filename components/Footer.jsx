@@ -1,5 +1,6 @@
 
-import { CodeSquare, Github, Linkedin } from 'lucide-react'
+import { CodeSquare } from 'lucide-react'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 const Footer = () => {
    return (
         <footer className="flex h-[6vh] space-x-2 justify-between items-center max-md:flex-col p-4">
@@ -19,10 +20,10 @@ const Footer = () => {
             </div>
             <div className="flex gap-4 items-center justify-between">
                 <a href="https://github.com/BLACK-ASH" target='_blank'>
-                    <Github className="size-6" />
+                    <FaGithub className="size-6" />
                 </a>
                 <a href="https://www.linkedin.com/in/ashif-shaikh-ash" target='_blank'>
-                    <Linkedin className="size-6" />
+                    <FaLinkedin className="size-6" />
                 </a>
             </div>
         </footer>
