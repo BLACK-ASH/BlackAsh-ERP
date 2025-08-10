@@ -15,11 +15,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-
 import { toast } from "sonner"
-import { redirect } from "next/navigation"
-
-
 
 
 const formSchema = z.object({
@@ -43,17 +39,12 @@ export function LoginForm({
 
 
   async function onSubmit(values) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    // Todo : Implement Login
     const res = await login(values);
-    console.log(res);
 
     if (res.status !== 200) {
       toast.error(res.message);
       return
     }
-    toast.success("Login Success");
   }
 
 

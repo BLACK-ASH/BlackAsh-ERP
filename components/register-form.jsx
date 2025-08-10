@@ -6,6 +6,7 @@ import z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 
+
 import {
     Form,
     FormControl,
@@ -46,16 +47,12 @@ export function RegisterForm({
     })
 
     async function onSubmit(values) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
         const res = await register(values);
-        console.log(res);
 
         if (res.status !== 200) {
             toast.error(res.message);
             return
         }
-        toast.success("Registrtion Success");
     }
 
 
