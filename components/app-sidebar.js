@@ -16,16 +16,17 @@ import {
 } from "@/components/ui/sidebar"
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
 import ToggleTheme from "./ToggleTheme"
 import { LogoutButton } from "./LogoutButton";
 import { getUser } from "@/lib/auth.action";
 import { redirect } from "next/navigation";
+import { Button } from "./ui/button";
 
 // Menu items.
 const items = [
@@ -55,8 +56,6 @@ const items = [
 
 export async function AppSidebar() {
     const user = await getUser()
-    console.log(user);
-    
 
     return (
         <Sidebar>
@@ -78,10 +77,10 @@ export async function AppSidebar() {
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
-                                <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild>
+                                <SidebarMenuItem  key={item.title}>
+                                    <SidebarMenuButton className={"text-[16px]"} asChild>
                                         <a href={item.url}>
-                                            <item.icon />
+                                            <item.icon className="size-4" />
                                             <span>{item.title}</span>
                                         </a>
                                     </SidebarMenuButton>
@@ -92,26 +91,21 @@ export async function AppSidebar() {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
-                <SidebarMenu>
-                    <SidebarMenuItem>
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <SidebarMenuButton>
-                                    <User2 /> <span>{user?.username}</span>
-                                    <ChevronUp className="ml-auto" />
-                                </SidebarMenuButton>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent
-                                side="top"
-                                className="w-[--radix-popper-anchor-width]"
-                            >
-                                <DropdownMenuItem>
-                                    <LogoutButton />
-                                </DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </SidebarMenuItem>
-                </SidebarMenu>
+                <SidebarGroup>
+                    {user ?
+                        <SidebarGroupContent className={"grid md:grid-cols-2 gap-2 space-y-2"}>
+                            <div className="flex justify-center items-center gap-2">
+                                <User2 />
+                                <p className="text-[16px] font-semibold text-balance">{user?.username}</p>
+                            </div>
+                            <LogoutButton />
+                        </SidebarGroupContent>
+                        :
+                        <Button asChild>
+                            <a href="/login">Login</a>
+                        </Button>
+                    }
+                </SidebarGroup>
             </SidebarFooter>
         </Sidebar>
     )

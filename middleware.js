@@ -9,13 +9,13 @@ export async function middleware(request) {
         return;
     }
     if (authRoutes.some((route) => request.nextUrl.pathname.startsWith(route))) {
-        if (request.cookies.has('token')) {
+        if (request.cookies.has('BlackAshERP-token')) {
             return NextResponse.redirect(new URL('/profile', request.url))
         }
         return;
     }
 
-    if (!request.cookies.has('token')) {
+    if (!request.cookies.has('BlackAshERP-token')) {
         return NextResponse.redirect(new URL('/login', request.url))
     }
 
