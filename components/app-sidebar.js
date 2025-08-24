@@ -1,4 +1,4 @@
-import { Calendar, ChevronUp, CodeSquare, Home, Search, Settings, User2 } from "lucide-react"
+import { Calendar, CodeSquare, Home,  User2 } from "lucide-react"
 import { BsQrCodeScan } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 
@@ -15,17 +15,9 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
 import ToggleTheme from "./ToggleTheme"
 import { LogoutButton } from "./LogoutButton";
 import { getUser } from "@/lib/auth.action";
-import { redirect } from "next/navigation";
 import { Button } from "./ui/button";
 
 // Menu items.
@@ -77,7 +69,7 @@ export async function AppSidebar() {
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
-                                <SidebarMenuItem  key={item.title}>
+                                <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton className={"text-[16px]"} asChild>
                                         <a href={item.url}>
                                             <item.icon className="size-4" />
@@ -89,11 +81,12 @@ export async function AppSidebar() {
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
+
             </SidebarContent>
             <SidebarFooter>
                 <SidebarGroup>
                     {user ?
-                        <SidebarGroupContent className={"grid md:grid-cols-2 gap-2 space-y-2"}>
+                        <SidebarGroupContent className={"space-y-2"}>
                             <div className="flex justify-center items-center gap-2">
                                 <User2 />
                                 <p className="text-[16px] font-semibold text-balance">{user?.username}</p>

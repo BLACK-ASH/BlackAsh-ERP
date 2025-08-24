@@ -36,10 +36,6 @@ const userSchema = new mongoose.Schema({
             type: String,
             default: null
         },
-        year: {
-            type: String,
-            default: null
-        },
         stream: {
             type: String,
             default: null
